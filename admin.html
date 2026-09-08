@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<title>STREET LIFE · Админ</title>
+<title>r!shop · Админ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -362,7 +362,7 @@
       </g>
     </svg>
     <div class="brand-text">
-      <div class="logo">Street Life</div>
+      <div class="logo">r!shop</div>
       <div class="logo-sub">Панель администратора</div>
     </div>
   </div>
@@ -426,7 +426,7 @@
     <div class="swatches" id="swatchPicker"></div>
 
     <label>Название</label>
-    <input type="text" id="fName" placeholder="Худи STREET LIFE">
+    <input type="text" id="fName" placeholder="Худи r!shop">
 
     <div class="row">
       <div>
@@ -529,7 +529,7 @@ function priceLineHTML(p){
   return fmt(p.price);
 }
 
-let pwd = localStorage.getItem('street_life_admin_pwd') || '';
+let pwd = localStorage.getItem('rshop_admin_pwd') || '';
 let products = [];
 let orders = [];
 let questions = [];
@@ -584,7 +584,7 @@ async function tryLogin(){
   document.getElementById('loginError').textContent = '';
   try {
     await api('/api/admin/login', { method:'POST' });
-    localStorage.setItem('street_life_admin_pwd', pwd);
+    localStorage.setItem('rshop_admin_pwd', pwd);
     enterApp();
   } catch(e){
     document.getElementById('loginError').textContent = 'Неверный пароль';
@@ -594,7 +594,7 @@ document.getElementById('loginBtn').onclick = tryLogin;
 document.getElementById('pwInput').addEventListener('keydown', e=>{ if(e.key==='Enter') tryLogin(); });
 
 document.getElementById('logoutBtn').onclick = () => {
-  localStorage.removeItem('street_life_admin_pwd');
+  localStorage.removeItem('rshop_admin_pwd');
   pwd = '';
   document.getElementById('app').style.display = 'none';
   document.getElementById('addBtn').style.display = 'none';
@@ -724,7 +724,7 @@ function renderOrders(){
     <div class="order-card">
       <div class="order-head">
         <div>
-          <div class="order-id">SL-${o.id}</div>
+          <div class="order-id">RS-${o.id}</div>
           <div class="order-date">${new Date(o.created_at).toLocaleString('ru-RU')}</div>
         </div>
         <span class="status-badge status-${o.status}">${statusLabel(o.status)}</span>
@@ -1182,7 +1182,7 @@ document.getElementById('saveBtn').onclick = async () => {
 if (pwd){
   api('/api/admin/login', { method:'POST' })
     .then(enterApp)
-    .catch(() => { pwd=''; localStorage.removeItem('street_life_admin_pwd'); });
+    .catch(() => { pwd=''; localStorage.removeItem('rshop_admin_pwd'); });
 }
 
 

@@ -1,31 +1,31 @@
 [
   {
     "id": 1,
-    "name": "Худи STREET LIFE Crown",
+    "name": "Худи r!shop Crown",
     "category": "Худи",
     "price": 3490,
     "old_price": null,
     "badge": "hit",
     "sizes": ["S", "M", "L", "XL"],
-    "desc": "Плотное худи STREET LIFE с вышивкой Crown на груди — свободный крой, мягкий начёс внутри, для города и не только.",
+    "desc": "Плотное худи r!shop с вышивкой Crown на груди — свободный крой, мягкий начёс внутри, для города и не только.",
     "swatch": 0,
     "images": []
   },
   {
     "id": 2,
-    "name": "Кроссовки STREET LIFE Runner",
+    "name": "Кроссовки r!shop Runner",
     "category": "Кроссовки",
     "price": 6990,
     "old_price": 8990,
     "badge": "sale",
     "sizes": ["40", "41", "42", "43", "44", "45"],
-    "desc": "Уличные кроссовки Runner — амортизирующая подошва, дышащий верх, узнаваемый силуэт STREET LIFE.",
+    "desc": "Уличные кроссовки Runner — амортизирующая подошва, дышащий верх, узнаваемый силуэт r!shop.",
     "swatch": 1,
     "images": []
   },
   {
     "id": 3,
-    "name": "Футболка STREET LIFE Tag",
+    "name": "Футболка r!shop Tag",
     "category": "Футболки",
     "price": 1690,
     "old_price": null,
@@ -37,7 +37,7 @@
   },
   {
     "id": 4,
-    "name": "Кепка STREET LIFE Snapback",
+    "name": "Кепка r!shop Snapback",
     "category": "Кепки",
     "price": 1290,
     "old_price": null,
@@ -49,7 +49,7 @@
   },
   {
     "id": 5,
-    "name": "Сумка STREET LIFE Sling",
+    "name": "Сумка r!shop Sling",
     "category": "Аксессуары",
     "price": 2190,
     "old_price": null,

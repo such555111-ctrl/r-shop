@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<title>STREET LIFE</title>
+<title>r!shop</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -378,8 +378,8 @@
         </g>
       </svg>
       <div class="brand-text">
-        <div class="logo">Street Life</div>
-        <div class="logo-sub">Streetwear Store</div>
+        <div class="logo">r!shop</div>
+        <div class="logo-sub">Трендовые товары</div>
       </div>
     </div>
     <div class="header-actions">
@@ -630,11 +630,11 @@ let sortMode = 'default';
 
 // --- избранное (хранится локально на устройстве) -----------------------
 function loadFavorites(){
-  try { return new Set(JSON.parse(localStorage.getItem('street_life_favs') || '[]')); }
+  try { return new Set(JSON.parse(localStorage.getItem('rshop_favs') || '[]')); }
   catch(e){ return new Set(); }
 }
 function saveFavorites(){
-  try { localStorage.setItem('street_life_favs', JSON.stringify([...favorites])); } catch(e){}
+  try { localStorage.setItem('rshop_favs', JSON.stringify([...favorites])); } catch(e){}
 }
 let favorites = loadFavorites();
 
@@ -713,7 +713,7 @@ function showToast(text, type){
 
 function renderTicker(){
   const t = document.getElementById('ticker');
-  const msg = 'STREET LIFE · STREETWEAR STORE · НОВАЯ КОЛЛЕКЦИЯ · ';
+  const msg = 'R!SHOP · ТРЕНДОВЫЕ ТОВАРЫ · НОВАЯ КОЛЛЕКЦИЯ · ';
   t.innerHTML = `<span>${msg.repeat(4)}</span><span>${msg.repeat(4)}</span>`;
 }
 
@@ -1280,7 +1280,7 @@ function renderOrders(orders){
       <div class="order-card" data-oid="${o.id}">
         <div class="order-head">
           <div>
-            <div class="order-id">Заказ SL-${o.id}</div>
+            <div class="order-id">Заказ RS-${o.id}</div>
             <div class="order-date">${date}</div>
           </div>
           <div class="order-status status-${o.status}">${ORDER_STATUS_LABEL[o.status] || o.status}</div>
@@ -1319,7 +1319,7 @@ function cancelOrder(oid, btn){
       statusEl.className = 'order-status status-' + order.status;
       statusEl.textContent = ORDER_STATUS_LABEL[order.status];
       btn.remove();
-      showToast(`Заказ SL-${oid} отменён`, 'success');
+      showToast(`Заказ RS-${oid} отменён`, 'success');
       if (tg) tg.HapticFeedback?.notificationOccurred('success');
     } catch(e){
       showToast(e.message, 'error');
@@ -1329,8 +1329,8 @@ function cancelOrder(oid, btn){
   };
 
   if (tg?.showConfirm){
-    tg.showConfirm(`Отменить заказ SL-${oid}?`, (ok) => { if (ok) doCancel(); });
-  } else if (window.confirm(`Отменить заказ SL-${oid}?`)){
+    tg.showConfirm(`Отменить заказ RS-${oid}?`, (ok) => { if (ok) doCancel(); });
+  } else if (window.confirm(`Отменить заказ RS-${oid}?`)){
     doCancel();
   }
 }
@@ -1453,7 +1453,7 @@ async function submitOrder(){
       throw new Error(err.error || 'Не удалось оформить заказ');
     }
     const data = await res.json();
-    document.getElementById('orderNo').textContent = 'SL-' + data.order_id;
+    document.getElementById('orderNo').textContent = 'RS-' + data.order_id;
     cart = [];
     appliedPromo = null;
     updateBadge();
